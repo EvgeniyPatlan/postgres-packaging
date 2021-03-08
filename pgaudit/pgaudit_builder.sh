@@ -81,7 +81,7 @@ add_percona_yum_repo(){
     fi
     yum -y install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
     percona-release disable all
-    percona-release enable ppg-12.5 testing
+    percona-release enable ppg-12.6 testing
     return
 }
 
@@ -90,7 +90,7 @@ add_percona_apt_repo(){
     dpkg -i percona-release_latest.generic_all.deb
     rm -f percona-release_latest.generic_all.deb
     percona-release disable all
-    percona-release enable ppg-12.5 testing
+    percona-release enable ppg-12.6 testing
     return
 }
 
@@ -129,7 +129,8 @@ get_sources(){
 
     git clone https://salsa.debian.org/postgresql/pgaudit.git deb_packaging
     cd deb_packaging
-    git checkout debian/${VERSION}-${RELEASE}
+    #git checkout debian/${VERSION}-${RELEASE}
+    git checkout debian/1.4.0-2
     cd ../
     mv deb_packaging/debian ./
     wget https://raw.githubusercontent.com/percona/postgres-packaging/12.6/pgaudit/control
@@ -222,7 +223,7 @@ install_deps() {
         percona-release enable tools testing
         percona-release enable ppg-12.5 testing
         apt-get update || true
-        INSTALL_LIST="build-essential dpkg-dev debconf debhelper clang-10 devscripts dh-exec dh-systemd git wget libkrb5-dev libssl-dev percona-postgresql-common percona-postgresql-server-dev-all"
+        INSTALL_LIST="build-essential dpkg-dev debconf debhelper clang-11 devscripts dh-exec dh-systemd git wget libkrb5-dev libssl-dev percona-postgresql-common percona-postgresql-server-dev-all"
         DEBIAN_FRONTEND=noninteractive apt-get -y --allow-unauthenticated install ${INSTALL_LIST}
     fi
     return;

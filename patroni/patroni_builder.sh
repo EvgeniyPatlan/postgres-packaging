@@ -150,7 +150,7 @@ get_sources(){
     mv all_packaging/RPM/* rpm/
     cd rpm
     rm -f patroni.spec
-    wget https://raw.githubusercontent.com/percona/postgres-packaging/12.6/patroni/patroni.spec
+    wget https://raw.githubusercontent.com/EvgeniyPatlan/postgres-packaging/12.6/patroni/patroni.spec
     sed -i 's:/opt/app:/opt:g' patroni.2.service
     tar -czf patroni-customizations.tar.gz patroni.2.service patroni-watchdog.service postgres-telia.yml
     cd ../

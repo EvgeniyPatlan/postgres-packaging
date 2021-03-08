@@ -133,7 +133,7 @@ get_sources(){
     rm -rf Makefile.patch
     cd debian
     rm -f rules control control.in
-    wget https://raw.githubusercontent.com/percona/postgres-packaging/12.6/pg_repack/rules
+    wget https://raw.githubusercontent.com/EvgeniyPatlan/postgres-packaging/12.6/pg_repack/rules
     wget https://raw.githubusercontent.com/percona/postgres-packaging/12.6/pg_repack/control
     wget https://raw.githubusercontent.com/percona/postgres-packaging/12.6/pg_repack/control.in
     cd ../
